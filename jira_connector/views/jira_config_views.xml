@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Form View -->
+    <record id="view_jira_config_form" model="ir.ui.view">
+        <field name="name">jira.config.form</field>
+        <field name="model">jira.config</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button name="test_connection" string="Test Connection" type="object" class="oe_highlight"/>
+                    <!-- <button name="fetch_jira_projects" string="Show Jira Projects" type="object" class="oe_highlight"/> -->
+                        <!-- <button name="sync_jira_projects" string="Sync Jira Projects" type="object" class="oe_highlight"/>-->
+                        <button name="sync_jira_data" string="Sync Jira Tickets" type="object" class="oe_highlight"/> 
+
+
+
+                </header>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="url"/>
+                        </group>
+                        <group>
+                            <field name="email"/>
+                            <field name="api_token" password="True"/>
+                            <field name="is_active"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- List View -->
+    <record id="view_jira_config_list" model="ir.ui.view">
+        <field name="name">jira.config.list</field>
+        <field name="model">jira.config</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="name"/>
+                <field name="url"/>
+                <field name="email"/>
+                <field name="is_active"/>
+            </list>
+        </field>
+    </record>
+
+ 
+</odoo>

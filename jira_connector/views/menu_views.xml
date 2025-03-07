@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <!-- Action for Jira Configuration -->
+   <record id="action_jira_config" model="ir.actions.act_window">
+    <field name="name">Jira Settings</field>
+    <field name="res_model">jira.config</field>
+    <field name="view_mode">list,form</field>
+</record>
+
+
+    <!-- Root Menu -->
+    <menuitem 
+        id="menu_jira_root"
+        name="Jira"
+        web_icon="jira_connector,static/description/jira-icon.png"
+        sequence="10"/>
+
+    <!-- Configuration Menu -->
+    <menuitem 
+        id="menu_jira_config"
+        name="Configuration"
+        parent="menu_jira_root"
+        sequence="100"/>
+
+    <!-- Settings Menu Item -->
+    <menuitem 
+        id="menu_jira_settings"
+        name="Settings"
+        parent="menu_jira_config"
+        action="action_jira_config"
+        sequence="10"/>
+</odoo>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Inherit Project Kanban View -->
+
+    <!-- Form View Inheritance -->
+    <record id="view_project_form_inherited" model="ir.ui.view">
+        <field name="name">project.project.form.inherited</field>
+        <field name="model">project.project</field>
+        <field name="inherit_id" ref="project.edit_project"/>
+        <field name="arch" type="xml">
+            <xpath expr="//notebook" position="inside">
+             <page string="Jira Integration" invisible="not is_jira_project">
+                    <group>
+                        <field name="jira_key" readonly="true"/>
+                        <field name="jira_id" readonly="true"/>
+                        <field name="is_jira_project" readonly="true"/>
+                    </group>
+                </page>
+
+            </xpath>
+        </field>
+    </record>
+</odoo>

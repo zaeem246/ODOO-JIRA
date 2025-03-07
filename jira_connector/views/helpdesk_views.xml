@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="helpdesk_ticket_view_form_inherit_jira" model="ir.ui.view">
+        <field name="name">helpdesk.ticket.form.inherit.jira</field>
+        <field name="model">helpdesk.ticket</field>
+        <field name="inherit_id" ref="helpdesk.helpdesk_ticket_view_form"/>
+        <field name="arch" type="xml">
+            <header position="inside">
+                <button name="sync_jira_data" string="Fetch Jira Data" type="object" class="oe_highlight"/>
+            </header>
+
+            <field name="email_cc" position="after">
+                <field name="jira_priority" invisible="not is_jira_ticket" readonly="true"/>
+                <field name="jira_key" readonly="true"/>
+            </field>
+
+            <notebook position="inside">
+                <page string="Jira Information" invisible="not is_jira_ticket">
+                    <group>
+                        <field name="jira_id" readonly="true"/>
+                        <field name="jira_status" readonly="true"/>
+                        <field name="jira_created_date" readonly="true"/>
+                        <field name="is_jira_ticket" readonly="true"/>
+                    </group>
+                   <group string="Add Comment" invisible="not jira_key">
+                    <field name="new_jira_comment" nolabel="1" placeholder="Type your comment here and save to post..."/>
+                </group>
+
+                    <group string="Jira Comments">
+                        <field name="jira_comments" nolabel="1" widget="html" options="{'safe': True}"/>
+                    </group>
+                </page>
+            </notebook>
+        </field>
+    </record>
+</odoo>

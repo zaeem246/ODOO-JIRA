@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_jira_config_user,jira.config.user,model_jira_config,group_jira_user,1,0,0,0
+access_jira_config_manager,jira.config.manager,model_jira_config,group_jira_manager,1,1,1,1
+access_helpdesk_ticket_jira,helpdesk.ticket.jira,helpdesk.model_helpdesk_ticket,group_jira_user,1,1,1,1

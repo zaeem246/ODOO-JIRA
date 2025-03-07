@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="module_jira_category" model="ir.module.category">
+        <field name="name">Jira Integration</field>
+        <field name="sequence">20</field>
+    </record>
+
+    <record id="group_jira_user" model="res.groups">
+        <field name="name">User</field>
+        <field name="category_id" ref="module_jira_category"/>
+    </record>
+
+    <record id="group_jira_manager" model="res.groups">
+        <field name="name">Manager</field>
+        <field name="category_id" ref="module_jira_category"/>
+        <field name="implied_ids" eval="[(4, ref('group_jira_user'))]"/>
+    </record>
+</odoo>
